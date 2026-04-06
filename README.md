@@ -100,28 +100,33 @@ npm run allure:clear
 
 ### 🤖 Continuous Integration with GitHub Actions
 
-This project uses GitHub Actions to automate the testing process. The pipeline runs the test suite and generates the Allure Report automatically, publishing it to GitHub Pages. Here is the step-by-step visual execution:
+This project uses GitHub Actions to automate the testing process. The pipeline runs the test suite and generates the Allure Report automatically, publishing it to GitHub Pages. 
 
 1. **Pipeline Execution:** Tests run automatically on PRs or pushes to the main branch.
-
 2. **Report Generation:** Test results are processed and the Allure Report is built.
-
-
 3. **Deployment to GitHub Pages:** The final report is hosted seamlessly for easy viewing.
 
-<p align="center">
-  <img alt="GitHub Actions Pipeline Execution" src=".github/images/githubaction1.png" width="80%">
-</p>
+➡️ **[View the Live Allure Report Here](https://dougsantos3.github.io/playwright-playground/)** *(Automatically updated with the latest execution!)*
 
+<details>
+<summary><b>📸 Click here to view the step-by-step pipeline execution screenshots</b></summary>
+<br>
 
-<p align="center">
-  <img alt="Report Generation" src=".github/images/githubaction2.png" width="80%">
-</p>
-
-<p align="center">
-  <img alt="Deployment to GitHub Pages" src=".github/images/githubaction3.png" width="80%">
-</p>
-
+<table align="center">
+  <tr>
+    <td align="center"><b>1. Click on GitHub action</b><br><img src=".github/images/githubaction1.png" width="100%"></td>
+    <td align="center"><b>2. Click on Playwright Playground Tests</b><br><img src=".github/images/githubaction2.png" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>3. Choose an environment</b><br><img src=".github/images/githubaction3.png" width="100%"></td>
+    <td align="center"><b>4. After the execution of the scenarios </b><br><img src=".github/images/githubaction4.png" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>5. Clicking on the Report</b><br><img src=".github/images/githubaction5.png" width="100%"></td>
+    <td align="center"><b>6. Live Results</b><br><img src=".github/images/githubaction6.png" width="100%"></td>
+  </tr>
+</table>
+</details>
 
 
 ---
@@ -131,4 +136,4 @@ If you find this repository useful or have any questions about QA Automation or 
 - **Douglas Santos:** [https://www.linkedin.com/in/douglasmartinssantos/](https://www.linkedin.com/in/douglasmartinssantos/)
 - **Community:** [Follow our page](https://www.linkedin.com/company/14864694/admin/page-posts/published/)
 
-If you learned something new, consider giving this repo a **⭐ Star** and sharing it with your network!
+This repository is designed to be a definitive reference for robust test automation. Support the project by leaving a **⭐ Star** and sharing this knowledge with your network to help elevate the QA and DEV community!
