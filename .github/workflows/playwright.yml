@@ -40,6 +40,10 @@ jobs:
     - name: Run Playwright tests
       run: npm run ${{ github.event.inputs.environment || 'dev' }}
 
+    - name: Add Environment Data to Allure
+      if: always()
+      run: echo "Environment=${{ github.event.inputs.environment || 'dev' }}" > allure-results/environment.properties
+
     - name: Upload Allure Results Artifact
       uses: actions/upload-artifact@v4
       if: always()
