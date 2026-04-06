@@ -132,8 +132,10 @@ This project uses GitHub Actions to automate the testing process. The pipeline r
 ---
 
 ### 🤝 Let's Connect!
-If you find this repository useful or have any questions about QA Automation or Development, let's connect on LinkedIn:
+Let's connect on LinkedIn and Youtube:
 - **Douglas Santos:** [https://www.linkedin.com/in/douglasmartinssantos/](https://www.linkedin.com/in/douglasmartinssantos/)
-- **Community:** [Follow our page](https://www.linkedin.com/company/14864694/admin/page-posts/published/)
+- **Community:** [VRaptor Code Academy Linkedin Page](https://www.linkedin.com/company/14864694/admin/page-posts/published/)
+- **Community:** [VRaptor Code Academy Youtube Channel](https://www.youtube.com/@VRaptorCode)
+
 
 This repository is designed to be a definitive reference for robust test automation. Support the project by leaving a **⭐ Star** and sharing this knowledge with your network to help elevate the QA and DEV community!
