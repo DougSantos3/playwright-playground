@@ -22,6 +22,8 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
     - uses: actions/checkout@v6
     - uses: actions/setup-node@v6
@@ -37,14 +39,6 @@ jobs:
 
     - name: Run Playwright tests
       run: npm run ${{ github.event.inputs.environment || 'dev' }}
-
-    - name: Upload Playwright Default Report
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
 
     - name: Upload Allure Results Artifact
       uses: actions/upload-artifact@v4
