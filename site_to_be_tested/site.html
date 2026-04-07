@@ -26,6 +26,7 @@
             const data = await response.json()
             document.getElementById('pokemon-name').innerText = data.name
         } catch (error) {
+            console.error('Failed to fetch Pokemon data:', error)
             document.getElementById('pokemon-name').innerText = 'Falha ao buscar'
             document.querySelector('.error-banner').style.display = 'block'
         }
