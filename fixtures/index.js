@@ -1,4 +1,4 @@
-import { test as base, expect } from '@playwright/test'
+import { test as base } from '@playwright/test'
 import { ApiService } from '../services/ApiService.js'
 import { PokemonService } from '../services/PokemonService.js'
 
@@ -35,5 +35,4 @@ export const test = base.extend({
         await use(new PokemonService(request, baseUrl))
     }
 })
-
-export { expect }
+export { expect } from '@playwright/test'

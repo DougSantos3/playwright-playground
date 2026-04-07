@@ -61,7 +61,7 @@ jobs:
         path: gh-pages
 
     - name: Build Allure Report with history
-      uses: simple-elf/allure-report-action@master
+      uses: simple-elf/allure-report-action@53ebb757a2097edc77c53ecef4d454fc2f2f774c # master
       if: always()
       id: allure-report
       with:
@@ -71,7 +71,7 @@ jobs:
         allure_history: allure-history
 
     - name: Deploy Allure Report to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
+      uses: peaceiris/actions-gh-pages@e9c66a37f080288a11235e32cbe2dc5fb3a679cc # v4
       if: always()
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}

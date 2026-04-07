@@ -7,7 +7,7 @@
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f0f2f5; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
         .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
         #pokemon-name { font-size: 2rem; font-weight: bold; text-transform: capitalize; color: #333; margin: 1rem 0; }
-        .error-banner { display: none; background: #fee2e2; color: #dc2626; padding: 1rem; border-radius: 8px; border: 1px solid #f87171; margin-top: 1rem; font-weight: bold; }
+        .error-banner { display: none; background: #fee2e2; color: #991b1b; padding: 1rem; border-radius: 8px; border: 1px solid #f87171; margin-top: 1rem; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -17,21 +17,18 @@
         <div class="error-banner">Oops! API Fora do Ar!</div>
     </div>
 
-    <script>
-        fetch('https://pokeapi.co/api/v2/pokemon/pikachu')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Falha na API')
-                }
-                return response.json()
-            })
-            .then(data => {
-                document.getElementById('pokemon-name').innerText = data.name
-            })
-            .catch(error => {
-                document.getElementById('pokemon-name').innerText = 'Falha ao buscar'
-                document.querySelector('.error-banner').style.display = 'block'
-            })
+    <script type="module">
+        try {
+            const response = await fetch('https://pokeapi.co/api/v2/pokemon/pikachu')
+            if (!response.ok) {
+                throw new Error('Falha na API')
+            }
+            const data = await response.json()
+            document.getElementById('pokemon-name').innerText = data.name
+        } catch (error) {
+            document.getElementById('pokemon-name').innerText = 'Falha ao buscar'
+            document.querySelector('.error-banner').style.display = 'block'
+        }
     </script>
 </body>
 </html>
