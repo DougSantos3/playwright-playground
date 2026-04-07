@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url) 
 const __dirname = path.dirname(__filename) 
 
-const DEMO_URL = `file://${path.resolve(__dirname, '../../demo/demo-app.html')}`
+const SITE_TO_BE_TESTED_URL = `file://${path.resolve(__dirname, '../../site_to_be_tested/site.html')}`
 
 test.describe('Tests using mocks @mock', async () => {
     test('Should display mocked pokemon on fron-end', async ({ page }) => {
@@ -18,7 +18,7 @@ test.describe('Tests using mocks @mock', async () => {
             await route.fulfill({ json })
         })
 
-        await page.goto(DEMO_URL)
+        await page.goto(SITE_TO_BE_TESTED_URL)
 
         await expect(page.locator('#pokemon-name')).toHaveText('mewthree')
     })
@@ -32,7 +32,7 @@ test.describe('Tests using mocks @mock', async () => {
             })
         })
    
-        await page.goto(DEMO_URL)
+        await page.goto(SITE_TO_BE_TESTED_URL)
 
         await expect(page.locator('.error-banner')).toBeVisible()
     })
