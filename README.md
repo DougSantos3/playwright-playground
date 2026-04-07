@@ -7,10 +7,20 @@
   Designed to demonstrate advanced QA automation strategies, including Mocking, Hybrid Testing, Data-Driven strategies, and BDD.
 
   <p>
-    <img src="https://img.shields.io/badge/Playwright-1.58-2EAD33?style=for-the-badge&logo=playwright&logoColor=white" alt="Playwright" />
-    <img src="https://img.shields.io/badge/Node.js-v24.14-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+    <img src="https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white" alt="Playwright" />
+    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
     <img src="https://img.shields.io/badge/Allure_Report-FF3B00?style=for-the-badge&logo=alluredotcom&logoColor=white" alt="Allure" />
     <img src="https://img.shields.io/badge/Cucumber_BDD-23D160?style=for-the-badge&logo=cucumber&logoColor=white" alt="Cucumber" />
+  </p>
+  <p>
+    <a href="https://github.com/DougSantos3/playwright-playground/actions">
+      <img src="https://img.shields.io/github/actions/workflow/status/DougSantos3/playwright-playground/playwright.yml?style=for-the-badge&logo=github" alt="GitHub Actions Pipeline Status" />
+    </a>
+    <a href="https://sonarcloud.io/summary/new_code?id=DougSantos3_playwright-playground">
+      <img src="https://img.shields.io/sonar/quality_gate/DougSantos3_playwright-playground?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=white" alt="Quality Gate Status" />
+      <img src="https://img.shields.io/sonar/bugs/DougSantos3_playwright-playground?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=white" alt="Bugs" />
+      <img src="https://img.shields.io/sonar/violations/DougSantos3_playwright-playground?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=white&label=Code%20Smells" alt="Code Smells" />
+    </a>
   </p>
 </div>
 
@@ -33,6 +43,14 @@ This project stands out by implementing advanced testing patterns:
 - 🥒 **BDD Integration:** Cucumber-based feature files (written in Gherkin) that validate behavioral flows directly on the user interface, ensuring tests are readable by both technical and business stakeholders.
 - 🤖 **CI/CD & GitHub Pages:** Continuous Integration pipelines using GitHub Actions, integrated with GitHub Pages to automatically host and display test reports online.
 - 📈 **Allure Reports Integration:** Comprehensive and visually appealing test reports with step-by-step trace viewing.
+
+## 🏆 Code Quality & Security
+
+This project strictly adheres to modern industry standards for secure and maintainable code. It is dynamically audited by **SonarCloud**, maintaining a strict Quality Gate:
+
+- ✅ **Quality Gate (Passed):** All pipelines enforce an absolute passing grade for new code.
+- 🐛 **Bugs (0):** Rock-solid implementation without unexpected logic failures.
+- 🧹 **Code Smells (0):** Extremely clean code architecture, leveraging optimized ES Modules exports and modern Javascript (`top-level await`), maintaining virtually zero technical debt.
 
 ## 📂 Project Structure
 
@@ -84,6 +102,30 @@ npm run qa
 # 3. Production (PROD) - Runs tests against production, IGNORING mocks (real network)
 npm run prod
 ```
+
+### 🐳 Running with Docker
+
+You can run this exact test suite inside an isolated Docker container, ensuring maximum consistency with the CI/CD pipeline and completely avoiding the "It works on my machine" problem.
+
+1. **Build the image:**
+   ```bash
+   docker build -t playwright-playground .
+   ```
+
+2. **Run the container in your desired environment:**
+   Just like the local execution, you can specify exactly which environment (`dev`, `qa`, or `prod`) you want to run by appending the script name at the end of the `docker run` command.
+
+   ```bash
+   # Run DEV tests inside Docker
+   docker run -it --rm --ipc=host playwright-playground npm run dev
+
+   # Run QA tests inside Docker
+   docker run -it --rm --ipc=host playwright-playground npm run qa
+
+   # Run PROD tests inside Docker
+   docker run -it --rm --ipc=host playwright-playground npm run prod
+   ```
+   *(Note: The `--ipc=host` flag is highly recommended when running browsers in Docker to prevent crashes due to shared memory limits).*
 
 ### 📊 Viewing the Results (Allure Report)
 
