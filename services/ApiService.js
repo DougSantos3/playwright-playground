@@ -1,7 +1,7 @@
 export class ApiService {
-    constructor(request) {
+    constructor(request, baseUrl) {
         this.request = request
-        this.baseUrl = process.env.API_URL_JSONPLACEHOLDER ||'https://jsonplaceholder.typicode.com'
+        this.baseUrl = baseUrl
     }
 
     async postData(path, payload) { return await this.request.post(`${this.baseUrl}${path}`, { data: payload }) }
