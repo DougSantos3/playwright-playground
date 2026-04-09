@@ -11,6 +11,9 @@
     <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
     <img src="https://img.shields.io/badge/Allure_Report-FF3B00?style=for-the-badge&logo=alluredotcom&logoColor=white" alt="Allure" />
     <img src="https://img.shields.io/badge/Cucumber_BDD-23D160?style=for-the-badge&logo=cucumber&logoColor=white" alt="Cucumber" />
+    <a href="https://hub.docker.com/r/douglasmartinssantos/playwright-playground">
+      <img src="https://img.shields.io/badge/Docker_Hub-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker Hub" />
+    </a>
   </p>
   <p>
     <a href="https://github.com/DougSantos3/playwright-playground/actions">
@@ -105,7 +108,26 @@ npm run prod
 
 ### 🐳 Running with Docker
 
-You can run this exact test suite inside an isolated Docker container, ensuring maximum consistency with the CI/CD pipeline and completely avoiding the "It works on my machine" problem.
+This project is fully containerized, providing a seamless and consistent testing environment across any platform. You can either use the pre-built image from Docker Hub or build it locally.
+
+> [!TIP]
+> **Recommended:** Using the public image is the fastest way to get started and ensures you are using the exact same environment used in our CI/CD pipelines.
+
+#### 1. Using the Public Image (Recommended)
+
+The easiest way to run the tests is by pulling the ready-to-use image directly from [Docker Hub](https://hub.docker.com/r/douglasmartinssantos/playwright-playground).
+
+```bash
+# Pull the latest version
+docker pull douglasmartinssantos/playwright-playground:v1
+
+# Run DEV tests (with mocks)
+docker run -it --rm --ipc=host douglasmartinssantos/playwright-playground:v1 npm run dev
+```
+
+#### 2. Building Locally
+
+If you've made changes to the code and want to test them in a container:
 
 1. **Build the image:**
    ```bash
@@ -113,7 +135,7 @@ You can run this exact test suite inside an isolated Docker container, ensuring 
    ```
 
 2. **Run the container in your desired environment:**
-   Just like the local execution, you can specify exactly which environment (`dev`, `qa`, or `prod`) you want to run by appending the script name at the end of the `docker run` command.
+   Just like the local execution, you can specify exactly which environment (`dev`, `qa`, or `prod`) you want to run.
 
    ```bash
    # Run DEV tests inside Docker
@@ -122,9 +144,10 @@ You can run this exact test suite inside an isolated Docker container, ensuring 
    # Run QA tests inside Docker
    docker run -it --rm --ipc=host playwright-playground npm run qa
 
-   # Run PROD tests inside Docker
+   # Run Prod tests inside Docker
    docker run -it --rm --ipc=host playwright-playground npm run prod
    ```
+   
    *(Note: The `--ipc=host` flag is highly recommended when running browsers in Docker to prevent crashes due to shared memory limits).*
 
 ### 📊 Viewing the Results (Allure Report)
