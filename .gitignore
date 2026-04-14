@@ -9,3 +9,12 @@ node_modules/
 /allure-report/
 /allure-results/
 package-lock.json
+.tool-versions
+local.log
+launch.json
+events.json
+sdk-cli.log
+sdk-debug-utility.log
+usage.log
+modified-key-metrics.json
+performance-report-42268-0.json
