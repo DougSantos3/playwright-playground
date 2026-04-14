@@ -163,6 +163,42 @@ To clean up past report data:
 npm run allure:clear
 ```
 
+### 🖥️ Playwright UI Dashboard
+
+Playwright includes a powerful interactive UI working as a dashboard for your test runs. It allows you to explore, run, and debug tests visually, with time-travel trace viewing, network inspection, and DOM snapshots.
+
+**To open the interactive Playwright Dashboard:**
+```bash
+npx playwright test --ui
+```
+
+### ☁️ Device Farm & BrowserStack
+
+A **Device Farm** (or Browser Farm) is a cloud-based testing environment that provides access to a massive infrastructure of real mobile devices, tablets, and desktop browsers. Instead of maintaining your own local grid, a device farm allows you to run automated tests across thousands of different device-browser-OS combinations, ensuring your app works perfectly for all users.
+
+This project is ready to be executed on **BrowserStack** using the **BrowserStack Playwright SDK**.
+
+> [!WARNING]
+> Your credentials must be correctly set in the configuration file (`browserstack.yml`) before running tests on the cloud. **Never** commit your real authentication tokens to this file if it's open-source!
+
+**You can run tests remotely using the following commands:**
+
+```bash
+# Run on BrowserStack for different environments
+npm run dev-browserstack
+npm run qa-browserstack
+npm run prod-browserstack
+```
+
+*Alternatively, you can run directly with the SDK:*
+```bash
+npx browserstack-node-sdk playwright test
+```
+
+<p align="center">
+  <img src=".github/images/browserstack1.png" width="80%" alt="BrowserStack Dashboard Overview" />
+</p>
+
 ### 🤖 Continuous Integration with GitHub Actions
 
 This project uses GitHub Actions to automate the testing process. The pipeline runs the test suite and generates the Allure Report automatically, publishing it to GitHub Pages. 

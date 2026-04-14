@@ -8,7 +8,11 @@
     "prod": "cross-env BASE_URL=https://playwright.dev playwright test --grep-invert \"@mock\"; npm run allure:generate",
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
-    "allure:clear": "rm -rf allure-results allure-report"
+    "allure:clear": "rm -rf allure-results allure-report",
+    "postinstall": "npm update browserstack-node-sdk",
+    "dev-browserstack": "cross-env BASE_URL=https://dev.playwright.dev browserstack-node-sdk playwright test; npm run allure:generate",
+    "qa-browserstack": "cross-env BASE_URL=https://staging.playwright.dev browserstack-node-sdk playwright test --grep-invert \"@mock\"; npm run allure:generate",
+    "prod-browserstack": "cross-env BASE_URL=https://playwright.dev browserstack-node-sdk playwright test --grep-invert \"@mock\"; npm run allure:generate"
   },
   "keywords": [],
   "author": "Douglas Martins Santos",
@@ -20,6 +24,7 @@
     "@types/node": "^25.5.0",
     "allure-commandline": "^2.38.1",
     "allure-playwright": "^3.6.0",
+    "browserstack-node-sdk": "^1.52.0",
     "cross-env": "^10.1.0",
     "dotenv": "^17.3.1"
   }
